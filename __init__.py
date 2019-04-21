@@ -20,14 +20,13 @@ for i in range(0,n):
     sentence_freq[i] = word[1]
 plt.plot(sentence_len,sentence_freq,'o-')
 plt.show()
-expectation = np.sum(np.multiply(sentence_len,sentence_freq))
+expectation = np.dot(sentence_len,sentence_freq)
 res = (sentence_len - expectation)
 square_res = np.multiply(res,res)
-variance = np.sum(np.multiply(square_res,sentence_freq))
+variance = np.dot(square_res,sentence_freq)
 std = np.sqrt(variance)
 mostfreq = np.max(sentence_freq)
-mostfreq_len_index = np.where(sentence_freq == mostfreq)
-mostfreq_len = sentence_len[mostfreq_len_index]
+mostfreq_len = sentence_len[sentence_freq == mostfreq]
 f = open('sentence_info.txt','a')
 f.write('expectation:    ')
 f.write(str(expectation))
