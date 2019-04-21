@@ -20,8 +20,10 @@ for i in range(0,n):
     sentence_freq[i] = word[1]
 plt.plot(sentence_len,sentence_freq,'o-')
 plt.show()
-expectation = np.sum(sentence_len * sentence_freq)
-variance = np.sum((sentence_len - expectation)**2 * sentence_freq)
+expectation = np.sum(np.multiply(sentence_len,sentence_freq))
+res = (sentence_len - expectation)
+square_res = np.multiply(res,res)
+variance = np.sum(np.multiply(square_res,sentence_freq))
 std = np.sqrt(variance)
 mostfreq = np.max(sentence_freq)
 mostfreq_len_index = np.where(sentence_freq == mostfreq)
