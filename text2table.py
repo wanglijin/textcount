@@ -33,7 +33,8 @@ for i in range(10,2000):
     .replace('’','').replace('“','').replace('”','').replace('、','').replace('（','').replace('）','')
     .replace('《','').replace('》','').replace('%','').replace('\n\n',''))
     textjieba = '/'.join(jieba.cut(textstr))
-    symbal_set = ['，','。','？','！','；','：','\n']
+    textstr = textstr.replace('，/','')
+    symbal_set = ['。','？','！','；','：','\n']
     keycharacter_div = '/'
     indexjieba_symbal = [ ]
     symbal_set_len = len(symbal_set)
